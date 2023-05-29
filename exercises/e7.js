@@ -6,7 +6,17 @@
 
 export function getClientWithLeastPositiveBalance(array) {
   // Your code goes here...
-  
+  let lowestBalanceArr = [];
+  let lowestBalance = array[0].balance;
+  for (let i = 0; i < array.length; i++) {
+  if (array[i] < 0) {
+    lowestBalanceArr;
+  } else if (array[i].balance < lowestBalance && array[i].balance > 0) {
+    lowestBalance = array[i];
+    lowestBalanceArr.push(lowestBalance);
+   }
+  }
+  return lowestBalanceArr; 
 }
 
 // === TEST YOURSELF ===

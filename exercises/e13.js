@@ -6,6 +6,23 @@
 
 export function getAllAccountsWithSumsOfDepositsLess2000(array) {
   // Your code goes here...
+let bankAccountsWithdepositsOfLessThan2000or0 = [];
+
+  for (const bankAccount of array) {
+    if ('deposits' in bankAccount && Array.isArray(bankAccount.deposits)) {
+      let sumOfDeposits = 0;
+      for (const deposit of bankAccount.deposits) {
+        sumOfDeposits += deposit;
+      }
+      if (sumOfDeposits < 2000 || sumOfDeposits === 0) {
+        bankAccountsWithdepositsOfLessThan2000or0.push(bankAccount);
+      }
+    } else if (!('deposits' in bankAccount) || (Array.isArray(bankAccount.deposits) && bankAccount.deposits.length === 0)) {
+      bankAccountsWithdepositsOfLessThan2000or0.push(bankAccount);
+    }
+  }
+
+  return bankAccountsWithdepositsOfLessThan2000or0;
 
 }
 
